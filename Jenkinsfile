@@ -4,10 +4,10 @@ pipeline {
     stages {
 
         stage('Checkout') {
-    steps {
-        git branch: 'main', url: 'https://github.com/Mahigautam27/jenkins-ci-demo.git'
-    }
-}
+            steps {
+                git branch: 'main', url: 'https://github.com/Mahigautam27/jenkins-ci-demo.git'
+            }
+        }
 
         stage('Build') {
             steps {
@@ -16,9 +16,10 @@ pipeline {
         }
 
         stage('Test') {
-    steps {
-        bat '"C:\\Python313\\python.exe" -m pytest'
+            steps {
+                bat '"C:\\Python313\\python.exe" -m pip install pytest'
+                bat '"C:\\Python313\\python.exe" -m pytest'
+            }
+        }
     }
-   }
-  }
 }
